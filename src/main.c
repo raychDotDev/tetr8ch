@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <raylib.h>
-
+//TEST
 static int *field;
 
 #define FIELD_W 10
