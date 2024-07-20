@@ -6,7 +6,7 @@
 
 int main()
 {
-	Game_init();
+	Game_init(20*30,20*30);
 	Game_change_scene(new_SceneGame());
 	Game_run();
 	return 0;

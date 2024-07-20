@@ -2,9 +2,9 @@
 
 #include "game.h"
 
-void Game_init()
+void Game_init(int w, int h)
 {
-	InitWindow(320,640, "TETR8CH");
+	InitWindow(w,h, "TETR8CH");
 	SetTargetFPS(120);
 	//ещё ченить точно надо, хз
 }

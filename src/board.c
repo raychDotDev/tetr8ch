@@ -19,13 +19,20 @@ Board new_Board()
 
 void Board_draw(Board board)
 {
+	int sw = GetScreenWidth();
+	int sh = GetScreenHeight();
+	int v = sh/board.height;
+	int h = sw/board.width;
+	v > h ? v = h : 0;
+	int h_off = (sw / 2) - (board.width*v)/2;
+	int v_off = (sh /2) - (board.height*v)/2;
 	for(int i = 0; i < board.height; i++)
 	{
 		for(int j = 0; j < board.width; j++)
 		{
-			int v = 12;
-			DrawRectangleLines(j*v,i*v,v,v,WHITE);
+			DrawRectangleLines(j*v+h_off,i*v+v_off,v,v,WHITE);
 			if(!(board.cells[i*board.width+j] > 0)) continue;
+			
 		}
 	}
 }
