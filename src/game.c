@@ -51,5 +51,6 @@ void Game_close()
 	{
 		current_scene.dispose();
 	}
+	CloseWindow();
 }
 

@@ -10,7 +10,7 @@ void SceneGame_init(){
 }
 
 void SceneGame_dispose(){
-	Board_dispose(board);
+	Board_dispose(&board);
 }
 
 void SceneGame_update(float dt)
