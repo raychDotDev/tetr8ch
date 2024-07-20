@@ -25,4 +25,6 @@ void Board_draw(Board board);
 
 void Board_dispose(Board *board);
 
+void Board_moveLeft(Board *board);
+void Board_moveRight(Board *board);
 #endif

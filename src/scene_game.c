@@ -15,7 +15,8 @@ void SceneGame_dispose(){
 
 void SceneGame_update(float dt)
 {
-
+	if(IsKeyPressed(KEY_A)) Board_moveLeft(&board);
+	if(IsKeyPressed(KEY_D)) Board_moveRight(&board);
 }
 
 void SceneGame_draw()

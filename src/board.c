@@ -112,4 +112,12 @@ void Board_dispose(Board *board)
 }
 
 
+void Board_moveLeft(Board *board)
+{
+	board->shape_x--;
+}
 
+void Board_moveRight(Board *board)
+{
+	board->shape_x++;
+}
