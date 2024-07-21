@@ -63,7 +63,7 @@ Board new_Board()
 	for(int i=0;i<b.width*b.height;i++)b.cells[i] = 0;	
 	b.shape_height = 5;
 	b.shape_width = 5;
-	b.shape = shapes[GetRandomValue(0,7)];
+	b.shape = shapes[GetRandomValue(0,6)];
 	b.shape_x = BOARD_WIDTH/2;
 	b.shape_y = BOARD_HEIGHT/2;
 	b.shape_r = 0;
@@ -106,18 +106,38 @@ void Board_draw(Board board)
 }
 
 void Board_dispose(Board *board)
-{
-	//TODO: понять почему корраптится хип при попытке всё это выпустить
+{	
 	free(board->cells);
 }
 
+int tryMove(Board board, int dir)
+{
+	for (int i = 0; i < board.shape_height; i++)
+	{
+		for (int j = 0; j < board.shape_width; j++)
+		{
+			int cell = board.shape[i*board.shape_width+j];
+			if (cell > 0)
+			{
+				if ((j - 2) + (board.shape_x+dir) < 0 ||
+					(j - 2) + (board.shape_x+dir) >= board.width)
+				{
+					return false;
+				}
+			}
+		}
+	}
+	return true;
+}
 
 void Board_moveLeft(Board *board)
 {
+	if (!tryMove(*board, -1)) return;
 	board->shape_x--;
 }
 
 void Board_moveRight(Board *board)
 {
+	if (!tryMove(*board, 1)) return;
 	board->shape_x++;
 }
